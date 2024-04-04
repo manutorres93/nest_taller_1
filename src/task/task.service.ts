@@ -34,4 +34,24 @@ export class TaskService {
         return await newTask.save();
     }
 
+    /* PUT */
+    async updateTask(id: string, @Body() task): Promise<Task>{
+        const taskData = {
+            title: task.title,
+            description: task.description,
+            completed: task.completed
+        }
+        const updatedTask = await this.taskModel.findOneAndUpdate({_id:id}, taskData, {new:true});
+        return updatedTask;
+    }
+
+    /* DELETE */
+    async deleteTask(id: string): Promise<Task>{
+        const deletedTask = await this.taskModel.findOneAndDelete({_id:id});
+        if(!deletedTask){
+            throw new NotFoundException(`Task ${id} not found`);
+        }
+        return deletedTask;
+    }
+
 }

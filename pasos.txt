@@ -1,0 +1,15 @@
+1. npm init -y
+2. npm i express mongodb mongoose
+3. npm i -g nodemon
+4. npm i body-parser
+5. npm i --save bcrypt jsonwebtoken passport passport-jwt
+6. Carpeta src a nivel de node_modules con : config(database.js), controller(xxxController.js), 
+middleware(auth.js), models(xxxModel.js), routes(index.js-routes.js),services(verificar necesidad)
+7. A nivel de esta carpeta src index.js
+
+
+Para correrlo:
+npm run start:dev
+
+
+
